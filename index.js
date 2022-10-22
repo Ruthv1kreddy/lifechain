@@ -116,10 +116,11 @@ app.get("/sign-up/insurance", (req, res, next) => {
   res.render("signup", { path: "sign-up", user: "insurance" });
 });
 app.post("/sign-up", (req, res, next) => {
+  console.log(req.body.password);
   bcrypt.hash(req.body.password, 12).then((hash) => {
     console.log(1);
     user.create({ username: req.body.username, email: req.body.email, password: hash });
-    res.redirect("/login");
+    return res.redirect("/");
   });
 });
 

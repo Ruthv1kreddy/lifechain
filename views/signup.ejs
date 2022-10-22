@@ -34,8 +34,8 @@
         </div>
         <% if(user=='patient'){ %>
         <div class="form-control">
-          <label for="hospitalId"><i class="fa-regular fa-user"></i> Username</label>
-          <input type="text" name="hospitalId" id="hospitalId" placeholder="hospitalId" required />
+          <label for="username"><i class="fa-regular fa-user"></i> Username</label>
+          <input type="text" name="username" id="username" placeholder="username" required />
           <div class="validation-container">
             <i class="fas fa-check-circle"></i>
             <i class="fas fa-exclamation-circle"></i>
@@ -44,17 +44,8 @@
         </div>
         <% } %> <% if(user=='hospital'){ %>
         <div class="form-control">
-          <label for="hospitalId"><i class="fa-regular fa-user"></i> hospital Name</label>
-          <input type="text" name="hospitalId" id="hospitalId" placeholder="hospital Name" required />
-          <div class="validation-container">
-            <i class="fas fa-check-circle"></i>
-            <i class="fas fa-exclamation-circle"></i>
-            <small>error message</small>
-          </div>
-        </div>
-        <div class="form-control">
-          <label for="hospitalId"><i class="fa-regular fa-user"></i>Hospital ID</label>
-          <input type="text" name="hospitalId" id="hospitalId" placeholder="hospital Name" required />
+          <label for="hospitalName"><i class="fa-regular fa-user"></i> hospital Name</label>
+          <input type="text" name="hospitalName" id="hospitalName" placeholder="hospital Name" required />
           <div class="validation-container">
             <i class="fas fa-check-circle"></i>
             <i class="fas fa-exclamation-circle"></i>
@@ -103,7 +94,7 @@
     </div>
     <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
     <script>
-      const hospitalId = document.forms[0].elements.namedItem("hospitalId");
+      const username = document.forms[0].elements.namedItem("username");
       const email = document.forms[0].elements.namedItem("email");
       const password = document.forms[0].elements.namedItem("password");
       const repassword = document.forms[0].elements.namedItem("repassword");
@@ -141,8 +132,7 @@
       function checkInput() {
         console.log("aa");
 
-        const usernameValue = hospitalId.value.trim();
-
+        const usernameValue = username.value.trim();
         if (emailValidator() && passwordValidator() && repasswordValidator()) {
           document.forms.item(0).submit();
         }
